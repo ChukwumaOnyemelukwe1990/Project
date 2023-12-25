@@ -18,6 +18,7 @@ sudo apt update
 install docker
 
 sudo apt install docker.io
+
 sudo chmod 666 var/run/docker.sock
 
 #step:3
@@ -61,7 +62,8 @@ enter access keys
 
 step:6
 build the docker image and push to aws ecr
-
+Go to ECR service
+Create a repository (Public)
 aws ecr-public get-login-password --region us-east-1 | docker login --username AWS --password-stdin public.ecr.aws/u9n2k9v9
 docker build -t dxc .
 docker tag dxc:latest public.ecr.aws/u9n2k9v9/dxc:latest
