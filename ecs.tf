@@ -12,7 +12,7 @@ resource "aws_ecs_task_definition" "test-def" {
   memory                   = var.fargate_memory
   container_definitions = jsonencode([{
     name  = "my-app-container"
-    image = "public.ecr.aws/u9n2k9v9/dxc:latest"
+    image = "public.ecr.aws/u9n2k9v9/dxc:latest" #update ur image here from step 5
     portMappings = [{
       containerPort = 80
       hostPort      = 80
