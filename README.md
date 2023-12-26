@@ -41,18 +41,23 @@ create the docker file:
 vi Dockerfile
 
 #Base Image
+
 FROM nginx:latest
 
 #Remove the files
+
 RUN rm ./usr/share/nginx/html/*
 
 #Working Dir
+
 WORKDIR /app
 
 #copy the files in html folder
+
 COPY ./inance-html/ /usr/share/nginx/html/
 
 #expose container port 80
+
 EXPOSE 80
 
 provide the access keys & secret key for aws configuration
@@ -64,9 +69,13 @@ step:6
 build the docker image and push to aws ecr
 Go to ECR service
 Create a repository (Public)
+
 aws ecr-public get-login-password --region us-east-1 | docker login --username AWS --password-stdin public.ecr.aws/u9n2k9v9
+
 docker build -t dxc .
+
 docker tag dxc:latest public.ecr.aws/u9n2k9v9/dxc:latest
+
 docker push public.ecr.aws/u9n2k9v9/dxc:latest
 
 
@@ -128,7 +137,9 @@ Ensure that the profile you specify in the profile attribute corresponds to the 
 
 2. Using Environment Variables:
 Set the AWS_ACCESS_KEY_ID and AWS_SECRET_ACCESS_KEY environment variables in your terminal session or script before running Terraform
+
 export AWS_ACCESS_KEY_ID="your-access-key-id"
+
 export AWS_SECRET_ACCESS_KEY="your-secret-access-key"
 
 
